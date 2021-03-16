@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 def say_hello():
-    print("Hello, I'm Johny!")
+    print("Hello, I'm James")
 
 
 class Server:

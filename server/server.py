@@ -6,16 +6,20 @@ from websockets import WebSocketServerProtocol
 logging.basicConfig(level=logging.INFO)
 
 
+def say_hello():
+    print('Hello')
+
+
 class Server:
     clients = set()
 
     async def register(self, ws: WebSocketServerProtocol) -> None:
         self.clients.add(ws)
-        logging.info(f'{ws.remote_address} connects.')
+        print(f'{ws.remote_address} connect')
 
     async def unregister(self, ws: WebSocketServerProtocol) -> None:
         self.clients.remove(ws)
-        logging.info(f'{ws.remote_address} disconnect.')
+        print(f'{ws.remote_address} disconnect.')
 
     async def send_to_clients(self, message: str) -> None:
         if self.clients:
